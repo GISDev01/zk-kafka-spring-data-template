@@ -1,4 +1,4 @@
-package com.gisdev01.kafka.consumer;
+package com.gisdev01.kafka.consumers;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,9 +18,10 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 
+
 @Configuration
 @EnableKafka
-public class ReceiverConfig {
+public class ReceiverPrimaryConfig {
 
     @Value("${kafka.bootstrap-servers}")
     private String bootstrapServers;
@@ -52,7 +53,7 @@ public class ReceiverConfig {
     }
 
     @Bean
-    public Receiver receiver() {
-        return new Receiver();
+    public ReceiverPrimary receiverPrimary() {
+        return new ReceiverPrimary();
     }
 }
